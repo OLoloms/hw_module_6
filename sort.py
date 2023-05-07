@@ -92,7 +92,7 @@ def sorting_files(path: str):
                     break
                 elif file_suffix in ext_lists[dict_items][1]:
                     new_file_name = normalize(file)
-                    os.rename(low_path, f'{main_path[0]}\\{ext_lists[dict_items][0]}\\{new_file_name}')
+                    os.rename(low_path, f'{main_path}\\{ext_lists[dict_items][0]}\\{new_file_name}')
                     break
                 else:
                     if file not in names_folders: 
