@@ -86,21 +86,21 @@ def sorting_files(path: str):
             file_suffix = Path(low_path).suffix
             for dict_items in range(len(ext_lists)):
                 if file_suffix in ext_lists[4][1]:
-                    if not os.path.exists(os.path.join(path, 'archives', Path(file).name)):
+                    if not os.path.exists(os.path.join(path, 'archives', (Path(file).name).split('.')[0])):
                         os.mkdir(os.path.join(path, 'archives', (Path(file).name).split('.')[0]))
                     shutil.unpack_archive(os.path.join(main_path, file), os.path.join(path, 'archives', (Path(file).name).split('.')[0]))
-                    break
+                    
                 elif file_suffix in ext_lists[dict_items][1]:
                     new_file_name = normalize(file)
                     os.rename(low_path, f'{main_path}\\{ext_lists[dict_items][0]}\\{new_file_name}')
-                    break
+                    
                 else:
                     if file not in names_folders: 
                         print(f'Невідоме розширення файлу - {file_suffix}')
-                        break
+                        
                     else:
                         print(f'Файл є директорією з назвою - {file}')
-                        break
+                        
 
 
 def remove_empty_folders(path: str):
